@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="madlibs.css">
+	<title>Mad Libs</title>
+</head>
+<body>
+	
+	<div class="form-style-6">
+		<h1>Calling in sick to work</h1>
+		<form>
+			
+			<input type="text" id="sniffle" placeholder="Sniffle">
+	
+			<input type="text" id="firstName" placeholder="Fist Name">
+
+			<input type="text" id="lastName" placeholder="Last Name">
+
+			<input type="text" id="bodyPart" placeholder="Body Part">
+
+			<input type="text" id="firstAdjective" placeholder="Adjective">
+
+			<input type="text" id="hour" placeholder="Hour">
+
+			<input type="text" id="verb" placeholder="Verb">
+
+			<input type="text" id="noun" placeholder="Noun">
+
+			<input type="text" id="place" placeholder="Place">
+
+			<input type="text" id="email" placeholder="Email">
+
+			<input type="text" id="secondAdjective" placeholder="Adjective">
+
+			<input type="text" id="day" placeholder="Day of the week">
+
+			<button type="button" onclick="showStory()"> GO!!!</button>		
+		</form>
+	</div>
+	<div id="output"></div>
+	<div id="past_stories"></div>
+		<script>
+			var past_stories= document.getElementById('past_stories');
+			
+			for (var i = 0; i < localStorage.length; i++) {
+				console.log("hello");
+				var past= localStorage.getItem(localStorage.key(i));
+				past_stories.insertAdjacentHTML('beforeend', `<p>${past}</p>`);
+			}
+
+
+			function showStory() {
+				const sniffle = document.getElementById('sniffle');
+				const firstName = document.getElementById('firstName');
+				const lastName = document.getElementById('lastName');
+				const bodyPart = document.getElementById('bodyPart');
+				const firstAdjective = document.getElementById('firstAdjective');
+				const hour = document.getElementById('hour');
+				const verb = document.getElementById('verb');
+				const noun = document.getElementById('noun');
+				const place = document.getElementById('place');
+				const email = document.getElementById('email');
+				const secondAdjective = document.getElementById('secondAdjective');
+				const day = document.getElementById('day');
+				const output = document.getElementById('output');
+				const form = document.querySelector('form');
+
+				
+
+
+				const story = `Hello ${sniffle.value}, this is ${firstName.value} ${lastName.value}. I think I've got a touch of that ${bodyPart.value} bug that's been going around, and I'm ${firstAdjective.value} I won't be able to come in. I'll try and make it in by ${hour.value}, but if not, I'll ${verb.value} and get some ${noun.value} done at the ${place.value}. If you need me, you can reach me at ${email.value}. Here's hoping I'll be ${secondAdjective.value} enough to come in ${day.value}.`;
+				console.log(story);
+
+				output.innerHTML = story;
+				output.insertAdjacentHTML('beforeend',`<div class= "button"><a href="index.html"> Try again!</a></div>` );
+				form.style.display = 'none';
+				output.style.display='';
+
+				console.log(window.localStorage);
+				localStorage.setItem(Date.now(),story);
+
+			}
+		</script>
+	</body>
+</html>
