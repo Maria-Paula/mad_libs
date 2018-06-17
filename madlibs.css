@@ -2,12 +2,13 @@ body{
     max-width: 500px;
     background: 100%;
     margin: 20px auto;
+    font-family: 'Handlee', cursive;
     background-image: url( https://i.pinimg.com/236x/c2/3a/58/c23a58a071464c2972b480300452bd8a--white-iphone-background-white-wallpaper-iphone.jpg)
 }
 
 
 .form-style-6{
-    font: 95% Arial, Helvetica, sans-serif;
+    font: 95%;
     max-width: 400px;
     margin: 90px auto;
     padding: 16px;
@@ -47,10 +48,10 @@ body{
     border: 1px solid #ccc;
     padding: 3%;
     color: #555;
-    font: 95% Arial, Helvetica, sans-serif;
+    font: 95% 'Handlee', cursive;
 }
 
-.form-style-6 button[type="button"]{
+.form-style-6 button[type="button"] {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -69,13 +70,14 @@ body{
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
+    font: 95% 'Handlee', cursive;
 }
 .form-style-6 button[type="submit"]:hover,
 .form-style-6 button[type="button"]:hover{
     background: #2EBC99;
 }
 
-.button {
+/*.button {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -95,4 +97,14 @@ body{
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-}
+}*/
+/*h1{
+    background: #43D1AF;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+
+*/

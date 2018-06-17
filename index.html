@@ -3,13 +3,14 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="madlibs.css">
 	<title>Mad Libs</title>
+	<link href="https://fonts.googleapis.com/css?family=Chewy|Handlee" rel="stylesheet">
+
 </head>
 <body>
 	
-	<div class="form-style-6">
+	<div id="story_form" class="form-style-6">
 		<h1>Calling in sick to work</h1>
 		<form>
-			
 			<input type="text" id="sniffle" placeholder="Sniffle">
 	
 			<input type="text" id="firstName" placeholder="Fist Name">
@@ -37,8 +38,12 @@
 			<button type="button" onclick="showStory()"> GO!!!</button>		
 		</form>
 	</div>
-	<div id="output"></div>
-	<div id="past_stories"></div>
+	
+
+	<div id="past_stories" class="form-style-6">
+		<h1>Past Stories</h1>
+	</div>
+
 		<script>
 			var past_stories= document.getElementById('past_stories');
 			
@@ -62,19 +67,21 @@
 				const email = document.getElementById('email');
 				const secondAdjective = document.getElementById('secondAdjective');
 				const day = document.getElementById('day');
-				const output = document.getElementById('output');
+				const storyForm = document.getElementById('story_form');
 				const form = document.querySelector('form');
 
 				
 
 
-				const story = `Hello ${sniffle.value}, this is ${firstName.value} ${lastName.value}. I think I've got a touch of that ${bodyPart.value} bug that's been going around, and I'm ${firstAdjective.value} I won't be able to come in. I'll try and make it in by ${hour.value}, but if not, I'll ${verb.value} and get some ${noun.value} done at the ${place.value}. If you need me, you can reach me at ${email.value}. Here's hoping I'll be ${secondAdjective.value} enough to come in ${day.value}.`;
+				const story = `Hello ${sniffle.value}, this is ${firstName.value} ${lastName.value}. I think I've got a touch of that ${bodyPart.value} bug that's been going around, and I'm ${firstAdjective.value} so I won't be able to come in. I'll try and make it in by ${hour.value}, but if not, I'll ${verb.value} and get some ${noun.value} done at the ${place.value}. If you need me, you can reach me at ${email.value}. Here's hoping I'll be ${secondAdjective.value} enough to come in ${day.value}.`;
 				console.log(story);
 
-				output.innerHTML = story;
-				output.insertAdjacentHTML('beforeend',`<div class= "button"><a href="index.html"> Try again!</a></div>` );
-				form.style.display = 'none';
-				output.style.display='';
+
+ 				form.style.display = 'none';
+				storyForm.insertAdjacentHTML('beforeend',story );
+				storyForm.insertAdjacentHTML('beforeend',`<form><button type="button" onclick="window.location.reload()"> try again</button></form>` );
+				
+				// story.style.display='';
 
 				console.log(window.localStorage);
 				localStorage.setItem(Date.now(),story);
